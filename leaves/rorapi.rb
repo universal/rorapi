@@ -43,7 +43,7 @@ class Rorapi < Autumn::Leaf
 
   def filter(query,candidates,detail)
     candidates.each do |it|
-      #this should be stored in the dump but let's retain flexabiliy over format for now.
+      #pre-truncated version wants to go in the dump but let's retain flexabiliy over format for now.
       path = it[:path].dup
       it[:truncated_path] = (detail ? path.join('::') : (path[0..-2].map {|p| p.gsub(/[A-Z]/){|z| "|#{z}"}.split('|').map {|i| i[0..2]}.join()}.join(':') << ":#{path.last}").gsub(/^:/){})
       path.map! {|p| p.downcase}
