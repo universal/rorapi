@@ -3,6 +3,10 @@ See leaves/rorapi.rb
 
 there are also some ongoing mods in lib/leaf.rb
 
+Ruby docs will be added shortly, along with the code to scrape and 
+parse the online docs and generate up-to-date dump files.
+
+
 = Autumn: A Ruby IRC Bot Framework
 <b>Version 2.0.3 (Mar 22, 2008)</b>
 
