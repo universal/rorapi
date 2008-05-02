@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env /home/nonstop/ruby19/bin/ruby
 #
 # Runs Autumn from the command line. This script will not exit until all leaves
 # have exited. To use this script as a daemon, see the script/daemon script.
