@@ -17,7 +17,7 @@ class Rorapi < Autumn::Leaf
 
   def q_command(stem,sender,reply_to,msg,detail=false)
     query = msg.split(' ')
-    reply_to = query.last.gsub(/#/){} if query.size > 1 
+    reply_to = query[1].gsub(/#/){} if query.size > 1 
     response = 'not found'
     if query.first =~ /^\?/
       faq = YAML::load(File.read('leaves/api_docs/rails_faq.yml'))
