@@ -394,6 +394,13 @@ module Autumn
         detail = true
         stem.message response, reply_to
         response = respond meth, stem, sender, reply_to, msg, detail
+      else
+        origin = sender.merge(:stem => stem)
+        reply_to = sender[:nick]
+        msg = msg.gsub(/!/){}
+        meth = :usage_command
+        stem.message response, reply_to
+        response = respond meth, stem, sender, reply_to, msg
       end
     end
 
@@ -538,7 +545,7 @@ module Autumn
       if arguments[:channel] || options[:respond_to_private_messages]
         reply_to = arguments[:channel] ? arguments[:channel] : sender[:nick]
         #begin rorapi customizations. dry up later
-        if arguments[:message] =~ /^\?[aA-zZ]/
+        if arguments[:message] =~ /^\?/ && arguments[:message].size > 1
           name = 'q'
           meth = "q_command".to_sym
           msg = arguments[:message].gsub(/^\?/){}
@@ -551,17 +558,19 @@ module Autumn
               #stem.message response, reply_to
             end
           end #end rorapi
-        elsif arguments[:message] =~ /^#{options[:command_prefix]}(\w+)\s*(.*)$/ then
-          name = $1.to_sym
+        elsif arguments[:message] == "!rails"
+          join_channel "#rubyonrails"
+        elsif arguments[:message] =~ /^![aA-zZ]/
+          args = arguments[:message].gsub(/!/){}.split(" ")
+          name = args.first
           meth = "#{name}_command".to_sym
-          msg = $2
-          msg = nil if msg.empty?
+          msg = args.last if args.size > 1
           origin = sender.merge(:stem => stem)
           if run_before_filters(name, stem, arguments[:channel], sender, name, msg) then
             response = respond meth, stem, sender, reply_to, msg
             run_after_filters name, stem, arguments[:channel], sender, name, msg if respond_to? meth
             if response and not response.empty? then
-              stem.message response, reply_to
+              #stem.message response, reply_to
             end
           end
         end

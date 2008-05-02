@@ -5,14 +5,16 @@ class Rorapi < Autumn::Leaf
   ROR_METHODS = Marshal.load(File.read('leaves/api_docs/rails.dump'))
   
 
-  def rails_command(stem,sender,reply_to,msg)
-    join_channel "#rubyonrails" #ie leave nickserv!
+  def git_command(stem,sender,reply_to,msg)
+    reply_to = msg if msg 
+    response = "http://github.com/broughcut/rorapi"
+    message(response,reply_to)
   end
 
-
   def usage_command(stem,sender,reply_to,msg)
+    reply_to = msg if msg 
     response = "'?to_json' '?json:fuzzy' '?to_json:all' '?to_json:se' '?to_json:var' '?method:baz:ba' '?method:args nick' '/rorapi ?method:args'"
-    response
+    message(response,reply_to)
   end
 
 
@@ -71,10 +73,9 @@ class Rorapi < Autumn::Leaf
           kind = rpath
         end
         doc = result[:description]
-        if doc && detail
-	        doc = "#{doc.gsub(/\s{1,}/,' ').gsub(/\n/){}}"
-	      else
-          doc = "#{doc.gsub(/\s{1,}/,' ').gsub(/\n/){}[0..100]}..."
+        doc.gsub!(/\s{1,}/,' ').gsub!(/\n/){} if doc
+        if doc && !detail
+          doc = "#{doc[0..100]}..."
         end
         response = []
         response << result[:method] << "(#{kind})" << doc << result[:tinyuri]
