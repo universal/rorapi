@@ -1,0 +1,2 @@
+--- 
+:scaffold: "Scaffold is no longer dynamic in Rails 2.0. Instead, use: 'script/generate scaffold title:string foo_id:integer...' [timestamps are added automatically] and check the docs for form_for"

@@ -385,10 +385,10 @@ module Autumn
     # a sender hash.
     
     def did_receive_private_message(stem, sender, msg)
-      if msg =~ /^\?[aA-zZ]/
+      if msg =~ /^\?{1,2}[aA-zZ]/
         name = 'q'
         meth = "q_command".to_sym
-        msg = msg.gsub(/^\?|quit|reload/){}
+        msg = msg.gsub(/^\?{1}|quit|reload/){}
         origin = sender.merge(:stem => stem)
         reply_to = sender[:nick]
         detail = true
@@ -545,10 +545,10 @@ module Autumn
       if arguments[:channel] || options[:respond_to_private_messages]
         reply_to = arguments[:channel] ? arguments[:channel] : sender[:nick]
         #begin rorapi customizations. dry up later
-        if arguments[:message] =~ /^\?/ && arguments[:message].size > 1
+        if arguments[:message] =~ /^\?{1,2}/ && arguments[:message].size > 1
           name = 'q'
           meth = "q_command".to_sym
-          msg = arguments[:message].gsub(/^\?/){}
+          msg = arguments[:message].gsub(/^\?{1}/){}
           origin = sender.merge(:stem => stem)
           stem.message response, reply_to
           if run_before_filters(name, stem, arguments[:channel], sender, name, msg) then

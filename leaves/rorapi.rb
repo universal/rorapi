@@ -15,14 +15,17 @@ class Rorapi < Autumn::Leaf
     message(response,reply_to)
   end
 
-
   def q_command(stem,sender,reply_to,msg,detail=false)
     query = msg.split(' ')
-    response = search(query.first,detail)
-    if query.size > 1 
-      reply_to = query.last.gsub(/#/){}
+    reply_to = query.last.gsub(/#/){} if query.size > 1 
+    response = 'not found'
+    if query.first =~ /^\?/
+      faq = YAML::load(File.read('leaves/api_docs/rails_faq.yml'))
+      response = faq.select {|it| it == query.first.gsub(/\W/){}.to_sym}.values.first
+    else
+      response = search(query.first,detail)
     end
-    message(response,reply_to)
+     message(response,reply_to)
   end
 
   alias Q_command q_command
