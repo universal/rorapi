@@ -1,12 +1,33 @@
 --- 
+:type: type column is reserved for Single Table Inheritance. Call it something else (eg 'kind'). As a last resort, override 'type' via inheritance_column method in the model
+:pagination: 
+- "will_paginate: http://errtheblog.com/posts/56-im-paginating-again"
 :latest: "What's New in Edge Rails: http://ryandaigle.com/tags/Edge%20Rails "
-:scaling_performance: "slide one: 8,000 cubic miles of klystron relays."
-:select: "select is fixed. "
-:"scaling-performance": "slide one: 8,000 cubic miles of klystron relays."
 :scaffold: "Scaffold is no longer dynamic in Rails 2.0. Instead, use: 'script/generate scaffold title:string foo_id:integer...' [timestamps are added automatically] and check the docs for form_for"
+:pastie: "http://pastie.caboo.se #rubyonrails favourite pasting service."
 :scaling: "Rails can instantaneously project solid matter to any point on the internet, in any shape or color you might imagine. For *any* purpose! Creation by mere thought. (Question about the 8,000 cubic miles of klystron relays? See: scaling_performance) "
+:auth: 
+- "restful_authentication: http://github.com/technoweenie/restful-authentication"
+:select: "select is fixed. "
 :casts: railscasts.com - Short Ruby on Rails screencasts containing tips, tricks and tutorials.
+:access: 
+- "acl_system2: http://github.com/ezmobius/acl_system2"
+:"scaling-performance": "slide one: 8,000 cubic miles of klystron relays."
 :vps: 
 - slicehost.com
 - bytemark.co.uk
 - linode.com
+:audit: 
+- "acts_as_audited: http://github.com/collectiveidea/acts_as_audited"
+- "acts_as_paranoid: http://github.com/technoweenie/acts_as_paranoid"
+- "acts_as_versioned: http://github.com/technoweenie/acts_as_versioned"
+:scaling_performance: "slide one: 8,000 cubic miles of klystron relays."
+:blogs: 
+- m.onkey.org
+- weblog.jamisbuck.org
+:reserved: 
+- process
+:protofx: "scriptaculous docs: http://wiki.script.aculo.us/scriptaculous/"
+:proto: "Prototype Javascript Framework: http://www.prototypejs.org/api"
+:agile: "Agile, Third Edition: http://www.pragprog.com/titles/rails3 & http://pragprog.com/titles/rails3/source_code"
+:gofastboat: http://egolog.com/blog/2007/12/25/mental-wanking-and-premature-optimization

@@ -37,7 +37,9 @@
       results.size < 10 ? (showing = results.size) : (showing = 10)
       result << " (#{showing} of #{results.size})" if results.any?
     else
-      result = candidates.sort_by {|it| it[:score]}.last
+      results = candidates.sort_by {|it| it[:score]}
+      at = query.join.gsub(/\D/){}
+      at ? result = results[at.to_i] : result = result.first
       if result
         rpath = result[:path].dup
         if rpath.size > 1
