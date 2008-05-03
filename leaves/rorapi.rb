@@ -17,8 +17,19 @@ class Rorapi < Autumn::Leaf
 
   def define_command(stem,sender,reply_to,define,msg)
     faq = YAML::load(File.read('leaves/api_docs/rails_faq.yml'))
-    definition = msg.gsub(/\*$/){} 
-    if faq[define] && msg =~ /\*$/ || !faq[define]
+    definition = msg.gsub(/\*$|<<|>>|\s{2,}/){}.strip
+    definition_set = definition.split(',')
+    definition_set.map! {|it| it.strip}
+    if msg =~ /^<</
+      faq[define] ||= []
+      if faq[define].is_a?(Array)
+        faq[define] << definition_set
+        faq[define].flatten!
+        faq[define].uniq!
+      end
+    elsif faq[define] && msg =~ /^>>/
+      faq[define].delete(definition)
+    elsif faq[define] && msg =~ /\*$/ || !faq[define]
       faq[define] = definition
     end
     File.open("leaves/api_docs/rails_faq.yml","w+") {|f| f.puts faq.to_yaml}
@@ -31,7 +42,9 @@ class Rorapi < Autumn::Leaf
     response = 'not found'
     if query.first =~ /^\?/
       faq = YAML::load(File.read('leaves/api_docs/rails_faq.yml'))
-      response = faq.select {|it| it == query.first.gsub(/\W/){}.to_sym}.values.first
+      item = faq.select {|it| it == query.first.gsub(/\W/){}.to_sym}.values.first
+      response = item
+      response = item.join(', ') if item.is_a?(Array)
     else
       response = search(query.first,detail)
     end
