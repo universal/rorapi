@@ -1,2 +1,6 @@
 --- 
 :scaffold: "Scaffold is no longer dynamic in Rails 2.0. Instead, use: 'script/generate scaffold title:string foo_id:integer...' [timestamps are added automatically] and check the docs for form_for"
+:select: "select is fixed. "
+:scaling: "Rails can instantaneously project solid matter to any point on the internet, in any shape or color you might imagine. For *any* purpose! Creation by mere thought. (Question about the 8,000 cubic miles of klystron relays? See: scaling_performance) "
+:"scaling-performance": "slide one: 8,000 cubic miles of klystron relays."
+:scaling_performance: "slide one: 8,000 cubic miles of klystron relays."

@@ -15,9 +15,19 @@ class Rorapi < Autumn::Leaf
     message(response,reply_to)
   end
 
+  def define_command(stem,sender,reply_to,define,msg)
+    faq = YAML::load(File.read('leaves/api_docs/rails_faq.yml'))
+    definition = msg.gsub(/\*$/){} 
+    if faq[define] && msg =~ /\*$/ || !faq[define]
+      faq[define] = definition
+    end
+    File.open("leaves/api_docs/rails_faq.yml","w+") {|f| f.puts faq.to_yaml}
+  end
+
   def q_command(stem,sender,reply_to,msg,detail=false)
     query = msg.split(' ')
     reply_to = query[1].gsub(/#/){} if query.size > 1 
+    detail = true if query.size > 1
     response = 'not found'
     if query.first =~ /^\?/
       faq = YAML::load(File.read('leaves/api_docs/rails_faq.yml'))

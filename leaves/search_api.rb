@@ -1,19 +1,26 @@
-  ROR_METHODS = Marshal.load(File.read('leaves/api_docs/rails.dump'))
   
+  RAILS_API = Marshal.load(File.read('leaves/api_docs/rails.dump'))
+
+  RUBY_API = Marshal.load(File.read('leaves/api_docs/ruby.dump'))
+
   def search(msg,detail)
     query = [*msg.dup.to_s.downcase.split(':')]
     title = query.first
-    if query.last == 'fuzzy'
-      candidates = ROR_METHODS.select {|it| it[:method].include?(title)}
+    lang = query[1]
+    if lang && lang == 'ruby' && query.last == 'fuzzy'
+      candidates = RUBY_API.select {|it| it[:method].include?(title)}
+    elsif lang == 'ruby'
+      candidates = RUBY_API.select {|it| it[:method] == title}
+    elsif query.last == 'fuzzy'
+      candidates = RAILS_API.select {|it| it[:method].include?(title)}
     else
-      candidates = ROR_METHODS.select {|it| it[:method] == title}
+      candidates = RAILS_API.select {|it| it[:method] == title}
     end
     filter(query,candidates,detail) if candidates.any?
   end
 
   def filter(query,candidates,detail)
     candidates.each do |it|
-      #pre-truncated version wants to go in the dump but let's retain flexabiliy over format for now.
       path = it[:path].dup
       it[:truncated_path] = path[0..-2].map {|p| p.gsub(/[A-Z]/){|z| "|#{z}"}.split('|').map {|i| i[0..2]}.join()}.join(':')
       path.map! {|p| p.downcase}
@@ -25,9 +32,7 @@
     end
     if query.last == 'all' || query.last == 'fuzzy'
       results = []
-      candidates.each {|it|
-	results << "#{it[:method]} #{it[:truncated_path]}"
-      }
+      candidates.each {|it| results << "#{it[:method]} #{it[:truncated_path]}"}
       result = results[0..9].join('; ') 
       results.size < 10 ? (showing = results.size) : (showing = 10)
       result << " (#{showing} of #{results.size})" if results.any?
@@ -45,8 +50,14 @@
         if doc && !detail
           doc = "#{doc[0..100]}..."
         end
+        egs = result[:examples] if result[:examples]
+        if egs && !detail
+          egs = "#{egs[0..1].join('; ')}..."
+        elsif egs
+          egs = egs.join('; ')
+        end
         response = []
-        response << result[:method] << "(#{kind})" << doc << result[:tinyuri]
+        response << result[:method] << "(#{kind})" << result[:tinyuri] << doc << egs
         result = response.compact.join(' ')
       end
     end

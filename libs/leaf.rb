@@ -558,6 +558,22 @@ module Autumn
               #stem.message response, reply_to
             end
           end #end rorapi
+        elsif arguments[:message] =~ /^rorbby,/
+          txt = arguments[:message].dup
+          txt.gsub!(/rorbby,\s/){}.strip
+          define = txt.split(' ')
+          term = nil
+          msg = nil
+          if define.first =~ /:/
+            term = define.first.gsub(/:/){}.to_sym
+            msg = define[1..-1].join(' ')
+          else
+            term = define.first.gsub(/\W/){}.to_sym
+            msg = define.join(' ')
+          end
+          origin = sender.merge(:stem => stem)
+          stem.message response, reply_to
+          response = respond :define_command, stem, sender, reply_to, term, msg
         elsif arguments[:message] == "!rails"
           join_channel "#rubyonrails"
         elsif arguments[:message] =~ /^![aA-zZ]/
