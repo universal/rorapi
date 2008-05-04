@@ -1,0 +1,151 @@
+--- 
+- :state: resolved
+  :num: 103
+  :title: Lighthouse Rake Tools
+  :assigned: 
+  :uri: http://tinyurl.com/4fwszf
+- :state: new
+  :num: 105
+  :title: Assigning strings with timezone information to timezone aware attributes strips out timezone info
+  :assigned: 
+  :uri: http://tinyurl.com/3zqlcx
+- :state: resolved
+  :num: 22
+  :title: default_url_options is being ignored by named route optimisation
+  :assigned: 
+  :uri: http://tinyurl.com/3rpjeo
+- :state: new
+  :num: 73
+  :title: SECURITY BUG - Request Forgery protection checks for 'Accept' header instead of 'Content-Type' header
+  :assigned: "Assigned: rick"
+  :uri: http://tinyurl.com/3la7cr
+- :state: new
+  :num: 86
+  :title: "PostgreSQL: Use adapter's #create_database db:test:purge"
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/4mkn56
+- :state: resolved
+  :num: 42
+  :title: "PostgreSQL: Use all config options in rake db:create and db:test:purge"
+  :assigned: 
+  :uri: http://tinyurl.com/4haktx
+- :state: new
+  :num: 104
+  :title: Fix blank conditions with find on AssociationCollection
+  :assigned: 
+  :uri: http://tinyurl.com/3typ3j
+- :state: new
+  :num: 63
+  :title: "[BUG] rake db:create and observers"
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/4n29jn
+- :state: invalid
+  :num: 82
+  :title: Iterate over :has_many array with the join (:through) model
+  :assigned: 
+  :uri: http://tinyurl.com/3evgmq
+- :state: resolved
+  :num: 38
+  :title: "PostgreSQL: use template1 database on rake:db_(create|drop)"
+  :assigned: 
+  :uri: http://tinyurl.com/4odyu8
+- :state: new
+  :num: 21
+  :title: db:structure:dump broken by 8a5a9dc
+  :assigned: "Assigned: rick"
+  :uri: http://tinyurl.com/4vffvg
+- :state: new
+  :num: 102
+  :title: Add db:console tasks
+  :assigned: 
+  :uri: http://tinyurl.com/4dpubt
+- :state: new
+  :num: 96
+  :title: Form helpers don't handle "question?" methods
+  :assigned: 
+  :uri: http://tinyurl.com/3wl29d
+- :state: resolved
+  :num: 71
+  :title: "[patch] change_table block"
+  :assigned: 
+  :uri: http://tinyurl.com/4rupec
+- :state: resolved
+  :num: 91
+  :title: STI sub classes not loaded until parent is
+  :assigned: 
+  :uri: http://tinyurl.com/3pzl85
+- :state: invalid
+  :num: 95
+  :title: render_to_string changes Content_Type - regression?
+  :assigned: 
+  :uri: http://tinyurl.com/46ngal
+- :state: new
+  :num: 101
+  :title: Custom rake task without desc not listed with rake --tasks
+  :assigned: 
+  :uri: http://tinyurl.com/3gnses
+- :state: new
+  :num: 100
+  :title: Problem combining single table inheritance and a has_many relation
+  :assigned: 
+  :uri: http://tinyurl.com/3usnhb
+- :state: new
+  :num: 99
+  :title: SQLite connection failing
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/4q5dma
+- :state: new
+  :num: 98
+  :title: "[PATCH] h method is not aliased properly"
+  :assigned: 
+  :uri: http://tinyurl.com/5x7rnz
+- :state: new
+  :num: 97
+  :title: "Enhancement: Add scope_options inspection method to named_scope"
+  :assigned: 
+  :uri: http://tinyurl.com/4fz93v
+- :state: new
+  :num: 90
+  :title: "Enhancement: Add support for named scopes with optional arguments"
+  :assigned: 
+  :uri: http://tinyurl.com/4ydeyf
+- :state: incomplete
+  :num: 57
+  :title: ":through option for \"named_scope\""
+  :assigned: "Assigned: Pratik"
+  :uri: http://tinyurl.com/4tn46e
+- :state: invalid
+  :num: 76
+  :title: "Review/reopen Ticket #9 and #10 please"
+  :assigned: "Assigned: rick"
+  :uri: http://tinyurl.com/48fs2n
+- :state: open
+  :num: 10
+  :title: Immediate flash values not accessible in tests
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/53pz7m
+- :state: open
+  :num: 9
+  :title: Adding records to a has_many collection does not work on initialization
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/3frmzr
+- :state: new
+  :num: 92
+  :title: "[FEATURE] More efficient session handling"
+  :assigned: 
+  :uri: http://tinyurl.com/4p97q9
+- :state: resolved
+  :num: 89
+  :title: Errors in partials are reported as occurring in parent templates
+  :assigned: "Assigned: Pratik"
+  :uri: http://tinyurl.com/4z6qpy
+- :state: new
+  :num: 94
+  :title: "[FIX] quote_string don't work with some postgres drivers"
+  :assigned: 
+  :uri: http://tinyurl.com/44yvmz
+- :state: new
+  :num: 78
+  :title: Fixtures.identify should generate uniqueIDs
+  :assigned: 
+  :uri: http://tinyurl.com/3jcd2v

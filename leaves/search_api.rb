@@ -39,7 +39,7 @@
     else
       results = candidates.sort_by {|it| it[:score]}
       at = query.join.gsub(/\D/){}
-      at ? result = results[at.to_i] : result = result.first
+      at.empty? ? result = results.last : result = results[at.to_i]
       if result
         rpath = result[:path].dup
         if rpath.size > 1

@@ -1,33 +1,55 @@
 --- 
+:blogs: 
+- m.onkey.org
+- weblog.jamisbuck.org
 :type: type column is reserved for Single Table Inheritance. Call it something else (eg 'kind'). As a last resort, override 'type' via inheritance_column method in the model
-:pagination: 
-- "will_paginate: http://errtheblog.com/posts/56-im-paginating-again"
-:latest: "What's New in Edge Rails: http://ryandaigle.com/tags/Edge%20Rails "
-:scaffold: "Scaffold is no longer dynamic in Rails 2.0. Instead, use: 'script/generate scaffold title:string foo_id:integer...' [timestamps are added automatically] and check the docs for form_for"
-:pastie: "http://pastie.caboo.se #rubyonrails favourite pasting service."
-:scaling: "Rails can instantaneously project solid matter to any point on the internet, in any shape or color you might imagine. For *any* purpose! Creation by mere thought. (Question about the 8,000 cubic miles of klystron relays? See: scaling_performance) "
-:auth: 
-- "restful_authentication: http://github.com/technoweenie/restful-authentication"
-:select: "select is fixed. "
-:casts: railscasts.com - Short Ruby on Rails screencasts containing tips, tricks and tutorials.
 :access: 
 - "acl_system2: http://github.com/ezmobius/acl_system2"
-:"scaling-performance": "slide one: 8,000 cubic miles of klystron relays."
+:latest: "What's New in Edge Rails: http://ryandaigle.com/tags/Edge%20Rails "
+:reserved: 
+- process
+:scaffold: "Scaffold is no longer dynamic in Rails 2.0. Instead, use: 'script/generate scaffold title:string foo_id:integer...' [timestamps are added automatically] and check the docs for form_for"
+:protofx: "scriptaculous docs: http://wiki.script.aculo.us/scriptaculous/"
+:pastie: "http://pastie.caboo.se #rubyonrails favourite pasting service."
 :vps: 
 - slicehost.com
 - bytemark.co.uk
 - linode.com
+:select: "select is fixed. "
+:proto: "Prototype Javascript Framework: http://www.prototypejs.org/api"
+:scaling: "Rails can instantaneously project solid matter to any point on the internet, in any shape or color you might imagine. For *any* purpose! Creation by mere thought. (Question about the 8,000 cubic miles of klystron relays? See: scaling_performance) "
 :audit: 
 - "acts_as_audited: http://github.com/collectiveidea/acts_as_audited"
 - "acts_as_paranoid: http://github.com/technoweenie/acts_as_paranoid"
 - "acts_as_versioned: http://github.com/technoweenie/acts_as_versioned"
-:scaling_performance: "slide one: 8,000 cubic miles of klystron relays."
-:blogs: 
-- m.onkey.org
-- weblog.jamisbuck.org
-:reserved: 
-- process
-:protofx: "scriptaculous docs: http://wiki.script.aculo.us/scriptaculous/"
-:proto: "Prototype Javascript Framework: http://www.prototypejs.org/api"
 :agile: "Agile, Third Edition: http://www.pragprog.com/titles/rails3 & http://pragprog.com/titles/rails3/source_code"
+:auth: 
+- "restful_authentication: http://github.com/technoweenie/restful-authentication"
+:html_editors: 
+- http://www.fckeditor.net
+- "wmd - The Wysiwym Markdown Editor: wmd-editor.com"
+:scaling_performance: "slide one: 8,000 cubic miles of klystron relays."
 :gofastboat: http://egolog.com/blog/2007/12/25/mental-wanking-and-premature-optimization
+:"scaling-performance": "slide one: 8,000 cubic miles of klystron relays."
+:casts: railscasts.com - Short Ruby on Rails screencasts containing tips, tricks and tutorials.
+:parse: 
+- "Hpricot: http://code.whytheluckystiff.net/hpricot/"
+:net: 
+- "EventMachine: http://rubyforge.org/projects/eventmachine"
+- "Mechanize: http://rubyforge.org/projects/mechanize"
+- "Net::HTTP: http://tinyurl.com/ner3q"
+:assets: 
+- "attachment_fu: http://github.com/technoweenie/attachment_fu"
+- "fleximage: http://github.com/Squeegy/fleximage"
+:stacks: 
+- "LiteSpeed w/ruby-lsapi: http://www.litespeedtech.com/products/webserver/download (free: scroll down)"
+- "Passenger (Apache/mod_rails): modrails.com"
+:gis: 
+- "GeoKit: http://geokit.rubyforge.org"
+:pagination: 
+- "will_paginate: http://errtheblog.com/posts/56-im-paginating-again (Tutorial: http://railscasts.com/episodes/51)"
+:actions: http://railscasts.com/episodes/35 (REST adds many constraints. It restricts your controllers to seven actions. Normally this is okay, but sometimes you need to add your own custom actions.)
+:counter: "http://railscasts.com/episodes/23 (Counter Cache Column: If you need to display the record count for a has_many association, you can improve performance by caching that number in a column.)"
+:brough: brough can't type.
+:Prototype: "Javascript Framework used by Rails: http://www.prototypejs.org/api"
+:prototype: "Javascript Framework used by Rails: http://www.prototypejs.org/api"
