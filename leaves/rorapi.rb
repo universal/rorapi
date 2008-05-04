@@ -12,9 +12,10 @@ class Rorapi < Autumn::Leaf
 
 
   def wire_command(stem,sender,reply_to,msg)
-    stop_wire
-    @polling = true
-    go_wire if sender[:nick] == 'brough'
+    unless @polling
+      @polling = true
+      go_wire if sender[:nick] == 'brough'
+    end
   end
 
 
@@ -139,10 +140,6 @@ class Rorapi < Autumn::Leaf
       rails_edge
       sleep 300
     end
-  end
-
-  def stop_wire
-    @polling = false
   end
 
   def get(server,page) #will class this out to eventmachine client
