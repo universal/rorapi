@@ -1,3 +1,6 @@
+#require 'rubygems'
+#require 'hpricot'
+#require 'yaml'
 require 'net/http'
 require 'hpricot'
 require 'leaves/search_api'
@@ -88,15 +91,14 @@ class Rorapi < Autumn::Leaf
     if !tix.eql?(new_tix)
       ticket = new_tix.first
       prev_version = old.flatten.select {|it| it[:uri] == ticket[:uri]}.first
-      return if prev_version[:state] == ticket[:state]
-     
+      return if prev_version && prev_version[:state] == ticket[:state]
       case ticket[:state].to_sym
-      when :invalid, :resolved, :incomplete
+      when :invalid, :resolved, :incomplete, :open
         about = "Ticket #{ticket[:num]} is #{ticket[:state]}"
       when :new
         about = "New ticket (#{ticket[:num]})"
       end
-      msg = "Lighthouse: #{about}: #{ticket[:title]} #{ticket[:assigned]} #{ticket[:uri]}"
+      p msg = "Lighthouse: #{about}: #{ticket[:title]} #{ticket[:assigned]} #{ticket[:uri]}"
       message(msg,"#rorbot")
       message(msg,"#rubyonrails")
       message(msg,"#rails-contrib")
@@ -140,7 +142,7 @@ class Rorapi < Autumn::Leaf
       sleep 300
     end
   end
-
+ 
   def stop_wire
     @polling = false
   end

@@ -104,3 +104,9 @@ http://rails.lighthouseapp.com/projects/8994/tickets/1-since-r9244-migrations-br
 http://rails.lighthouseapp.com/projects/8994/tickets/14-patch-make-the-new-activesupport-cache-mem_cache_store-accept-options: http://tinyurl.com/5ygps5
 http://rails.lighthouseapp.com/projects/8994/tickets/11-feature-has_many-through-named_scope: http://tinyurl.com/4bh4wc
 http://rails.lighthouseapp.com/projects/8994/tickets/4-lighthouse-will-be-wiped-before-it-s-made-official-please-continue-to-use-trac-for-now: http://tinyurl.com/4pmxys
+http://rails.lighthouseapp.com/projects/8994/tickets/107-level-hooks-for-validations: http://tinyurl.com/462xgk
+http://rails.lighthouseapp.com/projects/8994/tickets/106-authenticity_token-appears-in-urls-after-ajax-get-request: http://tinyurl.com/3g2ckr
+http://rails.lighthouseapp.com/projects/8994/tickets/108-patch-change_table-cleanup: http://tinyurl.com/3grv3x
+http://rails.lighthouseapp.com/projects/8994/tickets/109-patch-ensure-necessary-included-tables-are-joined-in-construct_finder_sql_for_association_limiting: http://tinyurl.com/542aut
+http://rails.lighthouseapp.com/projects/8994/tickets/110-patch-scan-custom-select-to-ensure-included-tables-are-joined: http://tinyurl.com/4x3y44
+http://rails.lighthouseapp.com/projects/8994/tickets/111-default-path-names-ignored: http://tinyurl.com/3v5ajc
