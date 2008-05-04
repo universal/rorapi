@@ -10,14 +10,13 @@ class Rorapi < Autumn::Leaf
     message(poll_edge,reply_to)
   end
 
+
   def wire_command(stem,sender,reply_to,msg)
-    return unless sender[:nick] == 'brough'
-    300.times do #hmm :/
-      rails_tix
-      rails_edge
-      sleep 300
-    end
+    stop_wire
+    @polling = true
+    go_wire if sender[:nick] == 'brough'
   end
+
 
   def usage_command(stem,sender,reply_to,msg)
     reply_to = msg if msg 
@@ -73,6 +72,7 @@ class Rorapi < Autumn::Leaf
     File.open("leaves/wire/rails/commits.yml","w+") {|f| f.puts commit.to_yaml}
     if commits && !commits.eql?(commit)
       msg = "New edge commit: #{commit[:title]} #{Date.parse(commit[:date]).strftime("%I%p %e/%m")}"
+      message(msg,"#rorbot")
       message(msg,"#rubyonrails")
       message(msg,"#rails-contrib")
     end
@@ -81,22 +81,23 @@ class Rorapi < Autumn::Leaf
   def rails_tix
     old = YAML::load(File.open("leaves/wire/rails/tix_archive.yml")) 
     tix = YAML::load(File.open("leaves/wire/rails/tix.yml"))
+    tix ||= []
     old ||= []
     old << tix
     new_tix = poll_lighthouse
     if !tix.eql?(new_tix)
       ticket = new_tix.first
-      if ticket[:state] != "new"
-        prev_version = old.select {|it| it[:uri] == ticket[:uri]}.first
-        return if prev_version[:state] == ticket[:state]
-      end
+      prev_version = old.flatten.select {|it| it[:uri] == ticket[:uri]}.first
+      return if prev_version[:state] == ticket[:state]
+     
       case ticket[:state].to_sym
-      when :invalid, :resolved
+      when :invalid, :resolved, :incomplete
         about = "Ticket #{ticket[:num]} is #{ticket[:state]}"
       when :new
         about = "New ticket (#{ticket[:num]})"
       end
       msg = "Lighthouse: #{about}: #{ticket[:title]} #{ticket[:assigned]} #{ticket[:uri]}"
+      message(msg,"#rorbot")
       message(msg,"#rubyonrails")
       message(msg,"#rails-contrib")
     end
@@ -128,6 +129,20 @@ class Rorapi < Autumn::Leaf
     count > 1 ? title = 'tix_archive' : title = 'tix'
     File.open("leaves/wire/rails/#{title}.yml","w+") {|f| f.puts tickets.to_yaml}
     tickets
+  end
+
+  private
+
+  def go_wire
+    while @polling
+      rails_tix
+      rails_edge
+      sleep 300
+    end
+  end
+
+  def stop_wire
+    @polling = false
   end
 
   def get(server,page) #will class this out to eventmachine client

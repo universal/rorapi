@@ -1,4 +1,14 @@
 --- 
+- :state: incomplete
+  :num: 57
+  :title: ":through option for \"named_scope\""
+  :assigned: "Assigned: Pratik"
+  :uri: http://tinyurl.com/4tn46e
+- :state: new
+  :num: 63
+  :title: "[BUG] rake db:create and observers"
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/4n29jn
 - :state: new
   :num: 21
   :title: db:structure:dump broken by 8a5a9dc
@@ -39,11 +49,6 @@
   :title: Fix blank conditions with find on AssociationCollection
   :assigned: 
   :uri: http://tinyurl.com/3typ3j
-- :state: new
-  :num: 63
-  :title: "[BUG] rake db:create and observers"
-  :assigned: "Assigned: Michael Koziarski"
-  :uri: http://tinyurl.com/4n29jn
 - :state: invalid
   :num: 82
   :title: Iterate over :has_many array with the join (:through) model
@@ -109,11 +114,6 @@
   :title: "Enhancement: Add support for named scopes with optional arguments"
   :assigned: 
   :uri: http://tinyurl.com/4ydeyf
-- :state: incomplete
-  :num: 57
-  :title: ":through option for \"named_scope\""
-  :assigned: "Assigned: Pratik"
-  :uri: http://tinyurl.com/4tn46e
 - :state: invalid
   :num: 76
   :title: "Review/reopen Ticket #9 and #10 please"
