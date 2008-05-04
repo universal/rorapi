@@ -17,7 +17,7 @@ class Rorapi < Autumn::Leaf
   def wire_command(stem,sender,reply_to,msg)
     unless @polling
       @polling = true
-      go_wire if sender[:nick] == 'brough'
+      go_wire
     end
   end
 
