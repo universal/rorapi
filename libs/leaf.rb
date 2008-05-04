@@ -576,6 +576,8 @@ module Autumn
           response = respond :define_command, stem, sender, reply_to, term, msg
         elsif arguments[:message] == "!rails"
           join_channel "#rubyonrails"
+        elsif arguments[:message] == "!contrib"
+          join_channel "#rails-contrib"
         elsif arguments[:message] =~ /^![aA-zZ]/
           args = arguments[:message].gsub(/!/){}.split(" ")
           name = args.first

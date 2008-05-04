@@ -1,6 +1,7 @@
 require 'net/http'
 require 'hpricot'
 require 'leaves/search_api'
+
 class Rorapi < Autumn::Leaf
 
 #  before_filter :authenticate, :only => [ :reload, :quit ]
@@ -8,7 +9,6 @@ class Rorapi < Autumn::Leaf
   def git_command(stem,sender,reply_to,msg)
     message(poll_edge,reply_to)
   end
-
 
   def wire_command(stem,sender,reply_to,msg)
     return unless sender[:nick] == 'brough'
@@ -21,7 +21,7 @@ class Rorapi < Autumn::Leaf
 
   def usage_command(stem,sender,reply_to,msg)
     reply_to = msg if msg 
-    response = "'?to_json' '?json:fuzzy' '?to_json:all' '?to_json:se' '?to_json:var' '?method:baz:ba' '?method:args nick' '/rorapi ?method:args'"
+    response = "usage: http://gotchunk.blogspot.com/2008/05/rorbby-rubyonrails-api-bot.html"
     message(response,reply_to)
   end
 
@@ -74,17 +74,20 @@ class Rorapi < Autumn::Leaf
     if commits && !commits.eql?(commit)
       msg = "New edge commit: #{commit[:title]} #{Date.parse(commit[:date]).strftime("%I%p %e/%m")}"
       message(msg,"#rubyonrails")
+      message(msg,"#rails-contrib")
     end
   end
 
   def rails_tix
-    file = File.read("leaves/wire/rails/tix.yml")
-    tix = YAML::load(file)
+    old = YAML::load(File.open("leaves/wire/rails/tix_archive.yml")) 
+    tix = YAML::load(File.open("leaves/wire/rails/tix.yml"))
+    old ||= []
+    old << tix
     new_tix = poll_lighthouse
     if !tix.eql?(new_tix)
       ticket = new_tix.first
       if ticket[:state] != "new"
-        prev_version = tix.select {|it| it[:uri] == ticket[:uri]}.first
+        prev_version = old.select {|it| it[:uri] == ticket[:uri]}.first
         return if prev_version[:state] == ticket[:state]
       end
       case ticket[:state].to_sym
@@ -95,6 +98,7 @@ class Rorapi < Autumn::Leaf
       end
       msg = "Lighthouse: #{about}: #{ticket[:title]} #{ticket[:assigned]} #{ticket[:uri]}"
       message(msg,"#rubyonrails")
+      message(msg,"#rails-contrib")
     end
   end
 
@@ -103,8 +107,10 @@ class Rorapi < Autumn::Leaf
     page = "/projects/8994-ruby-on-rails/tickets"
     doc = get(server,page)
     tickets = []
-    doc = get(server,"#{page}")#?page=#{i+1}")
-    if doc
+    #count = doc.at(".pagination").search(:a)[-2].inner_text.to_i
+    count = 1
+    count.times do |i|
+      doc = get(server,"#{page}?page=#{i+1}")
       (doc/"#open-tickets tr").each do |ticket|
         t = {}
         link = ticket.search(:a)[1]
@@ -115,11 +121,12 @@ class Rorapi < Autumn::Leaf
         t[:assigned] = nil
         t[:assigned] = "Assigned: #{assignee}" unless assignee.empty?
         t[:uri] = "http://rails.lighthouseapp.com#{link[:href]}"
-        t[:uri] = tinyuri(t[:uri])
+        t[:uri] = tinyuri(t[:uri]) if count == 1
         tickets << t
       end
     end
-    File.open("leaves/wire/rails/tix.yml","w+") {|f| f.puts tickets.to_yaml}
+    count > 1 ? title = 'tix_archive' : title = 'tix'
+    File.open("leaves/wire/rails/#{title}.yml","w+") {|f| f.puts tickets.to_yaml}
     tickets
   end
 

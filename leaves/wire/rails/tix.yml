@@ -1,4 +1,9 @@
 --- 
+- :state: new
+  :num: 21
+  :title: db:structure:dump broken by 8a5a9dc
+  :assigned: "Assigned: rick"
+  :uri: http://tinyurl.com/4vffvg
 - :state: resolved
   :num: 103
   :title: Lighthouse Rake Tools
@@ -49,11 +54,6 @@
   :title: "PostgreSQL: use template1 database on rake:db_(create|drop)"
   :assigned: 
   :uri: http://tinyurl.com/4odyu8
-- :state: new
-  :num: 21
-  :title: db:structure:dump broken by 8a5a9dc
-  :assigned: "Assigned: rick"
-  :uri: http://tinyurl.com/4vffvg
 - :state: new
   :num: 102
   :title: Add db:console tasks

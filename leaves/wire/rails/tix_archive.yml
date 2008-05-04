@@ -1,0 +1,526 @@
+--- 
+- :state: new
+  :num: 21
+  :title: db:structure:dump broken by 8a5a9dc
+  :assigned: "Assigned: rick"
+  :uri: http://tinyurl.com/4vffvg
+- :state: resolved
+  :num: 103
+  :title: Lighthouse Rake Tools
+  :assigned: 
+  :uri: http://tinyurl.com/4fwszf
+- :state: new
+  :num: 105
+  :title: Assigning strings with timezone information to timezone aware attributes strips out timezone info
+  :assigned: 
+  :uri: http://tinyurl.com/3zqlcx
+- :state: resolved
+  :num: 22
+  :title: default_url_options is being ignored by named route optimisation
+  :assigned: 
+  :uri: http://tinyurl.com/3rpjeo
+- :state: new
+  :num: 73
+  :title: SECURITY BUG - Request Forgery protection checks for 'Accept' header instead of 'Content-Type' header
+  :assigned: "Assigned: rick"
+  :uri: http://tinyurl.com/3la7cr
+- :state: new
+  :num: 86
+  :title: "PostgreSQL: Use adapter's #create_database db:test:purge"
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/4mkn56
+- :state: resolved
+  :num: 42
+  :title: "PostgreSQL: Use all config options in rake db:create and db:test:purge"
+  :assigned: 
+  :uri: http://tinyurl.com/4haktx
+- :state: new
+  :num: 104
+  :title: Fix blank conditions with find on AssociationCollection
+  :assigned: 
+  :uri: http://tinyurl.com/3typ3j
+- :state: new
+  :num: 63
+  :title: "[BUG] rake db:create and observers"
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/4n29jn
+- :state: invalid
+  :num: 82
+  :title: Iterate over :has_many array with the join (:through) model
+  :assigned: 
+  :uri: http://tinyurl.com/3evgmq
+- :state: resolved
+  :num: 38
+  :title: "PostgreSQL: use template1 database on rake:db_(create|drop)"
+  :assigned: 
+  :uri: http://tinyurl.com/4odyu8
+- :state: new
+  :num: 102
+  :title: Add db:console tasks
+  :assigned: 
+  :uri: http://tinyurl.com/4dpubt
+- :state: new
+  :num: 96
+  :title: Form helpers don't handle "question?" methods
+  :assigned: 
+  :uri: http://tinyurl.com/3wl29d
+- :state: resolved
+  :num: 71
+  :title: "[patch] change_table block"
+  :assigned: 
+  :uri: http://tinyurl.com/4rupec
+- :state: resolved
+  :num: 91
+  :title: STI sub classes not loaded until parent is
+  :assigned: 
+  :uri: http://tinyurl.com/3pzl85
+- :state: invalid
+  :num: 95
+  :title: render_to_string changes Content_Type - regression?
+  :assigned: 
+  :uri: http://tinyurl.com/46ngal
+- :state: new
+  :num: 101
+  :title: Custom rake task without desc not listed with rake --tasks
+  :assigned: 
+  :uri: http://tinyurl.com/3gnses
+- :state: new
+  :num: 100
+  :title: Problem combining single table inheritance and a has_many relation
+  :assigned: 
+  :uri: http://tinyurl.com/3usnhb
+- :state: new
+  :num: 99
+  :title: SQLite connection failing
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/4q5dma
+- :state: new
+  :num: 98
+  :title: "[PATCH] h method is not aliased properly"
+  :assigned: 
+  :uri: http://tinyurl.com/5x7rnz
+- :state: new
+  :num: 97
+  :title: "Enhancement: Add scope_options inspection method to named_scope"
+  :assigned: 
+  :uri: http://tinyurl.com/4fz93v
+- :state: new
+  :num: 90
+  :title: "Enhancement: Add support for named scopes with optional arguments"
+  :assigned: 
+  :uri: http://tinyurl.com/4ydeyf
+- :state: incomplete
+  :num: 57
+  :title: ":through option for \"named_scope\""
+  :assigned: "Assigned: Pratik"
+  :uri: http://tinyurl.com/4tn46e
+- :state: invalid
+  :num: 76
+  :title: "Review/reopen Ticket #9 and #10 please"
+  :assigned: "Assigned: rick"
+  :uri: http://tinyurl.com/48fs2n
+- :state: open
+  :num: 10
+  :title: Immediate flash values not accessible in tests
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/53pz7m
+- :state: open
+  :num: 9
+  :title: Adding records to a has_many collection does not work on initialization
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/3frmzr
+- :state: new
+  :num: 92
+  :title: "[FEATURE] More efficient session handling"
+  :assigned: 
+  :uri: http://tinyurl.com/4p97q9
+- :state: resolved
+  :num: 89
+  :title: Errors in partials are reported as occurring in parent templates
+  :assigned: "Assigned: Pratik"
+  :uri: http://tinyurl.com/4z6qpy
+- :state: new
+  :num: 94
+  :title: "[FIX] quote_string don't work with some postgres drivers"
+  :assigned: 
+  :uri: http://tinyurl.com/44yvmz
+- :state: new
+  :num: 78
+  :title: Fixtures.identify should generate uniqueIDs
+  :assigned: 
+  :uri: http://tinyurl.com/3jcd2v
+- :state: new
+  :num: 93
+  :title: Restore timestamps in model rollback
+  :assigned: 
+  :uri: http://tinyurl.com/4em37u
+- :state: new
+  :num: 87
+  :title: Dependencies shouldn't swallow errors from required files.
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/4xh85e
+- :state: resolved
+  :num: 53
+  :title: Edge-zip has zero length
+  :assigned: "Assigned: Jeremy Kemper"
+  :uri: http://tinyurl.com/3qer46
+- :state: resolved
+  :num: 79
+  :title: Update links on Rails Website
+  :assigned: 
+  :uri: http://tinyurl.com/47jm6m
+- :state: new
+  :num: 64
+  :title: eager loading inconsistency
+  :assigned: 
+  :uri: http://tinyurl.com/52tcbl
+- :state: resolved
+  :num: 80
+  :title: form_helper corrupts text_fields which have raw html entities
+  :assigned: 
+  :uri: http://tinyurl.com/3hkyat
+- :state: resolved
+  :num: 56
+  :title: Cheaper Dependencies#log_call to resolve irritating error message w/ rake db:create
+  :assigned: 
+  :uri: http://tinyurl.com/3votdc
+- :state: resolved
+  :num: 88
+  :title: "[PULLREQUEST]  add support for specifying a file to load routes from in environment.rb"
+  :assigned: 
+  :uri: http://tinyurl.com/4ryjzb
+- :state: resolved
+  :num: 85
+  :title: has_many :through .create with no parameters causes a "can't dup NilClass" error
+  :assigned: 
+  :uri: http://tinyurl.com/45raek
+- :state: resolved
+  :num: 84
+  :title: ActionView crashes if RAILS_ROOT is not defined during require()
+  :assigned: 
+  :uri: http://tinyurl.com/5y4xjj
+- :state: invalid
+  :num: 83
+  :title: Prototype insertion - deprecation and custom functions
+  :assigned: 
+  :uri: http://tinyurl.com/3l4osx
+- :state: new
+  :num: 69
+  :title: UrlEncodedPairParser creates wrong params hash with nested attributes in arrays
+  :assigned: 
+  :uri: http://tinyurl.com/4geeww
+- :state: new
+  :num: 81
+  :title: Association IDs carry over to associated model
+  :assigned: 
+  :uri: http://tinyurl.com/429jug
+- :state: new
+  :num: 12
+  :title: Bounded params in find(...:from)
+  :assigned: 
+  :uri: http://tinyurl.com/4uja2f
+- :state: new
+  :num: 77
+  :title: "ActiveRecord: :select is wiped when doing a join"
+  :assigned: 
+  :uri: http://tinyurl.com/4ngty7
+- :state: new
+  :num: 74
+  :title: problem with tests and custom mysql fulltext indexes
+  :assigned: 
+  :uri: http://tinyurl.com/3e7qbj
+- :state: resolved
+  :num: 33
+  :title: AssociationsPreload casts foreign keys to integers
+  :assigned: 
+  :uri: http://tinyurl.com/4dx8nw
+- :state: new
+  :num: 75
+  :title: Routing - Receptors with a dot in the name
+  :assigned: 
+  :uri: http://tinyurl.com/3scle2
+- :state: resolved
+  :num: 15
+  :title: Doc for ActionController::Resources::Resource.resources
+  :assigned: "Assigned: Pratik"
+  :uri: http://tinyurl.com/4gjuhq
+- :state: resolved
+  :num: 54
+  :title: render :template doesn't work
+  :assigned: "Assigned: Pratik"
+  :uri: http://tinyurl.com/42f2fa
+- :state: new
+  :num: 72
+  :title: auto_link fails to recognize urls separated by space
+  :assigned: 
+  :uri: http://tinyurl.com/4uopk9
+- :state: invalid
+  :num: 28
+  :title: ActionView class method to set default order for date and time field helpers
+  :assigned: 
+  :uri: http://tinyurl.com/3wmr7l
+- :state: incomplete
+  :num: 23
+  :title: validates_uniqueness_of doesn't escape attributes
+  :assigned: 
+  :uri: http://tinyurl.com/3hpgsn
+- :state: resolved
+  :num: 39
+  :title: Add blocks to AR create and update
+  :assigned: 
+  :uri: http://tinyurl.com/4vsfcm
+- :state: resolved
+  :num: 48
+  :title: label tag ignoring for attribute
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/3vubv6
+- :state: invalid
+  :num: 66
+  :title: True/False conditions broken for sqlite
+  :assigned: 
+  :uri: http://tinyurl.com/4r7235
+- :state: new
+  :num: 70
+  :title: "[PATCH] rake package is broken"
+  :assigned: 
+  :uri: http://tinyurl.com/4k4lyu
+- :state: resolved
+  :num: 68
+  :title: Form labels have wrong for attribute when an index is given
+  :assigned: 
+  :uri: http://tinyurl.com/45wpwe
+- :state: resolved
+  :num: 8
+  :title: Fixture caching does not work with prefixed/suffixed tables
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/5y9g4d
+- :state: resolved
+  :num: 31
+  :title: Use schema.rb for AR's unit test for all databases
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/3gx53l
+- :state: resolved
+  :num: 43
+  :title: Render partial with record doesn't assign given record to local variable if instance variable doesn't exist
+  :assigned: 
+  :uri: http://tinyurl.com/4r49hj
+- :state: resolved
+  :num: 67
+  :title: optimistic locking should quote table name
+  :assigned: 
+  :uri: http://tinyurl.com/4bezhg
+- :state: resolved
+  :num: 65
+  :title: Running postgres unit tests broken when starting from scratch
+  :assigned: 
+  :uri: http://tinyurl.com/4penb3
+- :state: resolved
+  :num: 62
+  :title: Add in place versions of compact, uniq, flatten to Array.prototype
+  :assigned: 
+  :uri: http://tinyurl.com/3n2j4t
+- :state: resolved
+  :num: 61
+  :title: render :partial => @collection.named_scope
+  :assigned: 
+  :uri: http://tinyurl.com/4zc99s
+- :state: invalid
+  :num: 51
+  :title: Gem dependencies can be listed in config/gems.yml
+  :assigned: 
+  :uri: http://tinyurl.com/4wh4cb
+- :state: resolved
+  :num: 47
+  :title: scaffold templates include tab characters
+  :assigned: 
+  :uri: http://tinyurl.com/3jhskp
+- :state: incomplete
+  :num: 2
+  :title: rake rails:freeze:edge on windows
+  :assigned: 
+  :uri: http://tinyurl.com/4erzpo
+- :state: incomplete
+  :num: 34
+  :title: attr_readonly not set when counter_cache set to true
+  :assigned: 
+  :uri: http://tinyurl.com/4xmnn8
+- :state: resolved
+  :num: 49
+  :title: add has_element? method to models with has_many/through associations
+  :assigned: 
+  :uri: http://tinyurl.com/4swds7
+- :state: resolved
+  :num: 27
+  :title: Ares logs response content not response size
+  :assigned: 
+  :uri: http://tinyurl.com/47p4og
+- :state: resolved
+  :num: 26
+  :title: Fix for change_column :null => true in migrations
+  :assigned: 
+  :uri: http://tinyurl.com/3f3w7k
+- :state: resolved
+  :num: 55
+  :title: Remove default integer :limit from MysqlAdapter.native_database_types
+  :assigned: 
+  :uri: http://tinyurl.com/3t8ra3
+- :state: open
+  :num: 24
+  :title: Prevent Dependencies.new_constants_in cleanup code masking real error when collecting watch_frames fails
+  :assigned: "Assigned: Jeremy Kemper"
+  :uri: http://tinyurl.com/4ozhf2
+- :state: new
+  :num: 60
+  :title: have_tag/assert_select does not validate XML with periods in attribute names
+  :assigned: 
+  :uri: http://tinyurl.com/3m6d8s
+- :state: new
+  :num: 59
+  :title: When loading a plugin via rubygems, rake tasks aren't included
+  :assigned: 
+  :uri: http://tinyurl.com/43b8bb
+- :state: new
+  :num: 58
+  :title: "@action_name and friends were not deprecated before removal"
+  :assigned: "Assigned: Pratik"
+  :uri: http://tinyurl.com/4vkvga
+- :state: resolved
+  :num: 50
+  :title: Rails.vendor_rails? doesn't exist in older boot.rb files
+  :assigned: 
+  :uri: http://tinyurl.com/4dvctn
+- :state: invalid
+  :num: 41
+  :title: ActiveRecord::Base#has_errors?
+  :assigned: 
+  :uri: http://tinyurl.com/3wqhr7
+- :state: new
+  :num: 52
+  :title: Remove argument from Base#attributes & deprecate
+  :assigned: 
+  :uri: http://tinyurl.com/4s37w6
+- :state: resolved
+  :num: 40
+  :title: nil default options for file_store
+  :assigned: 
+  :uri: http://tinyurl.com/3po3pw
+- :state: resolved
+  :num: 45
+  :title: Association Preload should quote table names
+  :assigned: 
+  :uri: http://tinyurl.com/4lxquv
+- :state: new
+  :num: 46
+  :title: with_scope clobbers result attributes when :joins key is specified
+  :assigned: 
+  :uri: http://tinyurl.com/46svsf
+- :state: new
+  :num: 44
+  :title: Custom resource paths
+  :assigned: 
+  :uri: http://tinyurl.com/3gtawm
+- :state: resolved
+  :num: 37
+  :title: Tell git to ignore generated documentation
+  :assigned: 
+  :uri: http://tinyurl.com/4c6y4l
+- :state: resolved
+  :num: 18
+  :title: Efficient include breaks when using finder_sql
+  :assigned: 
+  :uri: http://tinyurl.com/4qat74
+- :state: resolved
+  :num: 19
+  :title: Resource routes with :path_name and :member
+  :assigned: 
+  :uri: http://tinyurl.com/3nvpxu
+- :state: resolved
+  :num: 30
+  :title: Add unique index test fails on sqlite2
+  :assigned: 
+  :uri: http://tinyurl.com/4j8f5t
+- :state: resolved
+  :num: 36
+  :title: freeze_edge_version
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/5xda8c
+- :state: invalid
+  :num: 35
+  :title: Added Hash#only for picking out specific attributes
+  :assigned: 
+  :uri: http://tinyurl.com/3keygq
+- :state: resolved
+  :num: 6
+  :title: ActiveResource::Connection should rescue from Timeout::Error
+  :assigned: 
+  :uri: http://tinyurl.com/4fnolp
+- :state: resolved
+  :num: 5
+  :title: Introduce ActiveResource::Base.timeout to allow Net::HTTP#read_timeout to be set
+  :assigned: 
+  :uri: http://tinyurl.com/3rgfzy
+- :state: resolved
+  :num: 32
+  :title: Remove default_url_options from mailer generator. Improve mailer docs
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/4mq5nx
+- :state: invalid
+  :num: 29
+  :title: increase github commits feed length
+  :assigned: "Assigned: david (at loudthinking)"
+  :uri: http://tinyurl.com/53vxpg
+- :state: resolved
+  :num: 20
+  :title: improve mailer generator and add tests
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/3emcq3
+- :state: resolved
+  :num: 17
+  :title: Double DISTINCT in calculations with eager loading on sqlite2
+  :assigned: 
+  :uri: http://tinyurl.com/4gr78z
+- :state: resolved
+  :num: 16
+  :title: Sqlite adapter doesn't handle quoted table names properly
+  :assigned: 
+  :uri: http://tinyurl.com/42mc62
+- :state: invalid
+  :num: 13
+  :title: Allow SEO friendly resources (ex. /my-resources)
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/69ghsk
+- :state: invalid
+  :num: 3
+  :title: AssetTagHelper should accept a slightly wider range of protocols
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/3hwqjf
+- :state: resolved
+  :num: 25
+  :title: Allow if option for caches_page
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/5lguua
+- :state: resolved
+  :num: 7
+  :title: cleanlogs.sh doesnt clean up after ActiveResource's debug log
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/3p27kn
+- :state: resolved
+  :num: 1
+  :title: Migrations will not run on a fresh database
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/4kbupm
+- :state: resolved
+  :num: 14
+  :title: Support options passed to ActiveSupport::Cache :mem_cache_store
+  :assigned: "Assigned: Joshua Peek"
+  :uri: http://tinyurl.com/5ygps5
+- :state: invalid
+  :num: 11
+  :title: "Feature: has_many :through named_scope"
+  :assigned: 
+  :uri: http://tinyurl.com/4bh4wc
+- :state: resolved
+  :num: 4
+  :title: Lighthouse will be wiped before it's made official; please continue to use Trac for now
+  :assigned: 
+  :uri: http://tinyurl.com/4pmxys

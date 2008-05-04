@@ -53,3 +53,4 @@
 :brough: brough can't type.
 :Prototype: "Javascript Framework used by Rails: http://www.prototypejs.org/api"
 :prototype: "Javascript Framework used by Rails: http://www.prototypejs.org/api"
+:last: find(:first, :order => 'created_at ASC')
