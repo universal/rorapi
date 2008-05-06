@@ -110,3 +110,14 @@ http://rails.lighthouseapp.com/projects/8994/tickets/108-patch-change_table-clea
 http://rails.lighthouseapp.com/projects/8994/tickets/109-patch-ensure-necessary-included-tables-are-joined-in-construct_finder_sql_for_association_limiting: http://tinyurl.com/542aut
 http://rails.lighthouseapp.com/projects/8994/tickets/110-patch-scan-custom-select-to-ensure-included-tables-are-joined: http://tinyurl.com/4x3y44
 http://rails.lighthouseapp.com/projects/8994/tickets/111-default-path-names-ignored: http://tinyurl.com/3v5ajc
+http://rails.lighthouseapp.com/projects/8994/tickets/112-patch-detect-duplicate-migration-names: http://tinyurl.com/3gv2ws
+http://rails.lighthouseapp.com/projects/8994/tickets/113-delete-for-orderedhash-to-work-like-a-hash-not-array: http://tinyurl.com/459ny6
+http://rails.lighthouseapp.com/projects/8994/tickets/114-namespaced-models-and-sti: http://tinyurl.com/43vyav
+http://rails.lighthouseapp.com/projects/8994/tickets/115-validates_confirmation_of-does-not-confirm-with-decimal-column-type: http://tinyurl.com/52nf5u
+http://rails.lighthouseapp.com/projects/8994/tickets/116-faulty-documentation: http://tinyurl.com/53sk8g
+http://rails.lighthouseapp.com/projects/8994/tickets/117-patch-add-assert_not_valid-to-model-assertions: http://tinyurl.com/4ketyc
+http://rails.lighthouseapp.com/projects/8994/tickets/118-add-mailer-assertions-to-rails: http://tinyurl.com/3jmyq9
+http://rails.lighthouseapp.com/projects/8994/tickets/119-add-basic-assertions-to-core_ext: http://tinyurl.com/547znn
+http://rails.lighthouseapp.com/projects/8994/tickets/120-patch-activerecord-calculations-only-accept-one-grouping-field: http://tinyurl.com/3w4s67
+http://rails.lighthouseapp.com/projects/8994/tickets/121-add-assert_showing_flash: http://tinyurl.com/3hg4eq
+http://rails.lighthouseapp.com/projects/8994/tickets/122-rails-init-rb-doesn-t-get-called-for-unpacked-gems: http://tinyurl.com/42skwq

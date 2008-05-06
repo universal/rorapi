@@ -1,6 +1,7 @@
 #require 'rubygems'
 #require 'hpricot'
 #require 'yaml'
+require 'cgi'
 require 'net/http'
 require 'hpricot'
 require 'leaves/search_api'
@@ -21,6 +22,14 @@ class Rorapi < Autumn::Leaf
     end
   end
 
+  def google_command(stem,sender,reply_to,target,msgs)
+    matches = msgs.select {|it| it[:nick] == target}
+    if matches.any?
+      msg = matches.last
+      query = "#{msg[:nick]}: http://www.google.com/search?q=ruby+rails+#{CGI.escape(msg[:msg].downcase.gsub(/[^a-zA-Z0-9-\s]/){}.gsub(/\s{1,}/,' '))}  (If you do not speak English, #{msg[:nick]}, I am at your disposal with 187 other languages along with their various dialects and sub-tongues.)"
+      message(query,reply_to)
+    end
+  end
 
   def usage_command(stem,sender,reply_to,msg)
     reply_to = msg if msg 
@@ -75,10 +84,9 @@ class Rorapi < Autumn::Leaf
     commit[:date] = xml.at(:entry).at(:updated).inner_text
     File.open("leaves/wire/rails/commits.yml","w+") {|f| f.puts commit.to_yaml}
     if commits && !commits.eql?(commit)
-      msg = "New edge commit: #{commit[:title]} #{Date.parse(commit[:date]).strftime("%I%p %e/%m")}"
+      msg = "New edge commit: #{commit[:title]}"
       message(msg,"#rorbot")
       message(msg,"#rubyonrails")
-      message(msg,"#rails-contrib")
     end
   end
 
@@ -99,7 +107,7 @@ class Rorapi < Autumn::Leaf
       when :new
         about = "New ticket (#{ticket[:num]})"
       end
-      p msg = "Lighthouse: #{about}: #{ticket[:title]} #{ticket[:assigned]} #{ticket[:uri]}"
+      p msg = "[ Lighthouse ] #{about}: #{ticket[:title]} #{ticket[:assigned]} #{ticket[:uri]}"
       message(msg,"#rorbot")
       message(msg,"#rubyonrails")
       message(msg,"#rails-contrib")

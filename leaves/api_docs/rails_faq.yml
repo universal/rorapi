@@ -22,6 +22,7 @@
 - "acts_as_audited: http://github.com/collectiveidea/acts_as_audited"
 - "acts_as_paranoid: http://github.com/technoweenie/acts_as_paranoid"
 - "acts_as_versioned: http://github.com/technoweenie/acts_as_versioned"
+- "version_fu: http://github.com/jmckible/version_fu/tree/master"
 :agile: "Agile, Third Edition: http://www.pragprog.com/titles/rails3 & http://pragprog.com/titles/rails3/source_code"
 :auth: 
 - "restful_authentication: http://github.com/technoweenie/restful-authentication"
@@ -57,3 +58,16 @@
 :manytomany: "many-to-many relationships and the differences: http://blog.hasmanythrough.com/2006/4/20/many-to-many-dance-off"
 :through: "many-to-many relationships and the differences: http://blog.hasmanythrough.com/2006/4/20/many-to-many-dance-off"
 :view: "http://railscasts.com/episodes/55 Cleaning Up the View: This episode starts off with a big, messy template. Watch as this code shrinks and becomes more readable while the interface stays the same."
+:when: when
+:finder: "Has Finder Functionality: http://ryandaigle.com/articles/2008/3/24/what-s-new-in-edge-rails-has-finder-functionality"
+:forms: http://railscasts.com/episodes/73 In this episode see how you can create multiple models through a single form while keeping the controller clean.
+:serialize: http://significantbits.wordpress.com/2008/01/29/yaml-vs-marshal-performance/
+:partials_counter: "partials have an iteration counter available to the template, use: partialname_counter"
+:cms: 
+- "Radiant: radiantcms.com (powers ruby-lang.org)"
+- "Comatose: http://code.google.com/p/comatose-plugin (the Micro CMS for Rails)"
+- "Mephisto: http://github.com/technoweenie/mephisto"
+- "RailFrog: railfrog.com"
+:rakecast: "http://railscasts.com/episodes/66 Custom Rake Tasks: Rake is one of those tools that you don't realize how powerful it is until you start using it. In this episode you will learn how to create custom rake tasks and improve them by using rake features."
+:audited: http://github.com/jmckible/version_fu/tree/master
+:god: http://www.loudthinking.com/ http://en.wikipedia.org/wiki/David_Heinemeier_Hansson

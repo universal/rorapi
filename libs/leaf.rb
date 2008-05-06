@@ -542,9 +542,11 @@ module Autumn
     end
     
     def parse_for_command(stem, sender, arguments)
+      @last_msgs ||= []
       if arguments[:channel] || options[:respond_to_private_messages]
         reply_to = arguments[:channel] ? arguments[:channel] : sender[:nick]
         #begin rorapi customizations. dry up later
+        msg_array = arguments[:message].split
         if arguments[:message] =~ /^\?{1,2}/ && arguments[:message].size > 1
           name = 'q'
           meth = "q_command".to_sym
@@ -578,6 +580,10 @@ module Autumn
           join_channel "#rubyonrails"
         elsif arguments[:message] == "!contrib"
           join_channel "#rails-contrib"
+        elsif msg_array.last =~ /google/ && msg_array.first =~ /,$|:$/ 
+          target = msg_array.first.gsub(/\W/){}          
+          stem.message response, reply_to
+          response = respond :google_command, stem, sender, reply_to, target, @last_msgs
         elsif arguments[:message] =~ /^![aA-zZ]/
           args = arguments[:message].gsub(/!/){}.split(" ")
           name = args.first
@@ -591,6 +597,10 @@ module Autumn
               #stem.message response, reply_to
             end
           end
+        end
+        if arguments[:channel] == '#rubyonrails'
+          @last_msgs << {:msg => arguments[:message], :nick => sender[:nick]}
+          @last_msgs.shift if @last_msgs.size > 10
         end
       end
     end

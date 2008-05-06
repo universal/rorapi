@@ -1,151 +1,151 @@
 --- 
-- :state: new
-  :num: 107
-  :title: Level hooks for validations
-  :assigned: "Assigned: Michael Koziarski"
-  :uri: http://tinyurl.com/462xgk
-- :state: new
-  :num: 111
-  :title: Default path names ignored
-  :assigned: "Assigned: Michael Koziarski"
-  :uri: http://tinyurl.com/3v5ajc
-- :state: open
-  :num: 22
-  :title: default_url_options is being ignored by named route optimisation
-  :assigned: "Assigned: Michael Koziarski"
-  :uri: http://tinyurl.com/3rpjeo
-- :state: new
-  :num: 110
+- :num: 110
+  :state: new
   :title: "[PATCH] Scan custom select to ensure included tables are joined"
   :assigned: 
   :uri: http://tinyurl.com/4x3y44
-- :state: new
-  :num: 109
-  :title: "[patch] Ensure necessary included tables are joined in construct_finder_sql_for_association_limiting"
-  :assigned: 
-  :uri: http://tinyurl.com/542aut
-- :state: new
-  :num: 108
-  :title: "[PATCH] change_table cleanup"
-  :assigned: 
-  :uri: http://tinyurl.com/3grv3x
-- :state: new
-  :num: 21
-  :title: db:structure:dump broken by 8a5a9dc
-  :assigned: "Assigned: rick"
-  :uri: http://tinyurl.com/4vffvg
-- :state: new
-  :num: 64
-  :title: eager loading inconsistency
-  :assigned: 
-  :uri: http://tinyurl.com/52tcbl
-- :state: incomplete
-  :num: 23
-  :title: validates_uniqueness_of doesn't escape attributes
-  :assigned: 
-  :uri: http://tinyurl.com/3hpgsn
-- :state: new
-  :num: 106
-  :title: authenticity_token appears in URLs after AJAX GET request
-  :assigned: 
-  :uri: http://tinyurl.com/3g2ckr
-- :state: new
-  :num: 102
-  :title: Add db:console tasks
-  :assigned: 
-  :uri: http://tinyurl.com/4dpubt
-- :state: incomplete
-  :num: 57
-  :title: ":through option for \"named_scope\""
-  :assigned: "Assigned: Pratik"
-  :uri: http://tinyurl.com/4tn46e
-- :state: new
-  :num: 63
-  :title: "[BUG] rake db:create and observers"
-  :assigned: "Assigned: Michael Koziarski"
-  :uri: http://tinyurl.com/4n29jn
-- :state: resolved
-  :num: 103
-  :title: Lighthouse Rake Tools
-  :assigned: 
-  :uri: http://tinyurl.com/4fwszf
-- :state: new
-  :num: 105
-  :title: Assigning strings with timezone information to timezone aware attributes strips out timezone info
-  :assigned: 
-  :uri: http://tinyurl.com/3zqlcx
-- :state: new
-  :num: 73
+- :num: 73
+  :state: new
   :title: SECURITY BUG - Request Forgery protection checks for 'Accept' header instead of 'Content-Type' header
   :assigned: "Assigned: rick"
   :uri: http://tinyurl.com/3la7cr
-- :state: new
-  :num: 86
+- :num: 59
+  :state: new
+  :title: When loading a plugin via rubygems, rake tasks aren't included
+  :assigned: 
+  :uri: http://tinyurl.com/43b8bb
+- :num: 116
+  :state: new
+  :title: Faulty image_submit_tag documentation
+  :assigned: 
+  :uri: http://tinyurl.com/53sk8g
+- :num: 96
+  :state: resolved
+  :title: Form helpers don't handle "question?" methods
+  :assigned: "Assigned: rick"
+  :uri: http://tinyurl.com/3wl29d
+- :num: 122
+  :state: resolved
+  :title: rails/init.rb doesn't get called for unpacked gems
+  :assigned: "Assigned: rick"
+  :uri: http://tinyurl.com/42skwq
+- :num: 21
+  :state: resolved
+  :title: db:structure:dump broken by 8a5a9dc
+  :assigned: "Assigned: rick"
+  :uri: http://tinyurl.com/4vffvg
+- :num: 22
+  :state: resolved
+  :title: default_url_options is being ignored by named route optimisation
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/3rpjeo
+- :num: 105
+  :state: new
+  :title: Assigning strings with timezone information to timezone aware attributes strips out timezone info
+  :assigned: 
+  :uri: http://tinyurl.com/3zqlcx
+- :num: 121
+  :state: new
+  :title: Add assert_showing_flash
+  :assigned: 
+  :uri: http://tinyurl.com/3hg4eq
+- :num: 118
+  :state: new
+  :title: Add mailer assertions to Rails
+  :assigned: 
+  :uri: http://tinyurl.com/3jmyq9
+- :num: 119
+  :state: new
+  :title: Add basic assertions to core_ext
+  :assigned: 
+  :uri: http://tinyurl.com/547znn
+- :num: 120
+  :state: new
+  :title: "[PATCH] ActiveRecord calculations only accept one grouping field"
+  :assigned: 
+  :uri: http://tinyurl.com/3w4s67
+- :num: 117
+  :state: new
+  :title: Add assert_not_valid to model assertions
+  :assigned: 
+  :uri: http://tinyurl.com/4ketyc
+- :num: 23
+  :state: open
+  :title: validates_uniqueness_of doesn't escape attributes
+  :assigned: 
+  :uri: http://tinyurl.com/3hpgsn
+- :num: 115
+  :state: new
+  :title: validates_confirmation_of does not confirm with decimal column type
+  :assigned: 
+  :uri: http://tinyurl.com/52nf5u
+- :num: 113
+  :state: resolved
+  :title: Delete() for OrderedHash to work like a Hash (not Array)
+  :assigned: 
+  :uri: http://tinyurl.com/459ny6
+- :num: 114
+  :state: new
+  :title: Namespaced models and STI
+  :assigned: 
+  :uri: http://tinyurl.com/43vyav
+- :num: 112
+  :state: new
+  :title: "[PATCH] Detect duplicate migration names"
+  :assigned: 
+  :uri: http://tinyurl.com/3gv2ws
+- :num: 106
+  :state: new
+  :title: authenticity_token appears in URLs after AJAX GET request
+  :assigned: 
+  :uri: http://tinyurl.com/3g2ckr
+- :num: 111
+  :state: new
+  :title: Default path names ignored
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/3v5ajc
+- :num: 107
+  :state: new
+  :title: Level hooks for validations
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/462xgk
+- :num: 102
+  :state: new
+  :title: Add db:console tasks
+  :assigned: 
+  :uri: http://tinyurl.com/4dpubt
+- :num: 109
+  :state: new
+  :title: "[patch] Ensure necessary included tables are joined in construct_finder_sql_for_association_limiting"
+  :assigned: 
+  :uri: http://tinyurl.com/542aut
+- :num: 108
+  :state: new
+  :title: "[PATCH] change_table cleanup"
+  :assigned: 
+  :uri: http://tinyurl.com/3grv3x
+- :num: 64
+  :state: new
+  :title: eager loading inconsistency
+  :assigned: 
+  :uri: http://tinyurl.com/52tcbl
+- :num: 57
+  :state: incomplete
+  :title: ":through option for \"named_scope\""
+  :assigned: "Assigned: Pratik"
+  :uri: http://tinyurl.com/4tn46e
+- :num: 63
+  :state: new
+  :title: "[BUG] rake db:create and observers"
+  :assigned: "Assigned: Michael Koziarski"
+  :uri: http://tinyurl.com/4n29jn
+- :num: 103
+  :state: resolved
+  :title: Lighthouse Rake Tools
+  :assigned: 
+  :uri: http://tinyurl.com/4fwszf
+- :num: 86
+  :state: new
   :title: "PostgreSQL: Use adapter's #create_database db:test:purge"
   :assigned: "Assigned: Michael Koziarski"
   :uri: http://tinyurl.com/4mkn56
-- :state: resolved
-  :num: 42
-  :title: "PostgreSQL: Use all config options in rake db:create and db:test:purge"
-  :assigned: 
-  :uri: http://tinyurl.com/4haktx
-- :state: new
-  :num: 104
-  :title: Fix blank conditions with find on AssociationCollection
-  :assigned: 
-  :uri: http://tinyurl.com/3typ3j
-- :state: invalid
-  :num: 82
-  :title: Iterate over :has_many array with the join (:through) model
-  :assigned: 
-  :uri: http://tinyurl.com/3evgmq
-- :state: resolved
-  :num: 38
-  :title: "PostgreSQL: use template1 database on rake:db_(create|drop)"
-  :assigned: 
-  :uri: http://tinyurl.com/4odyu8
-- :state: new
-  :num: 96
-  :title: Form helpers don't handle "question?" methods
-  :assigned: 
-  :uri: http://tinyurl.com/3wl29d
-- :state: resolved
-  :num: 71
-  :title: "[patch] change_table block"
-  :assigned: 
-  :uri: http://tinyurl.com/4rupec
-- :state: resolved
-  :num: 91
-  :title: STI sub classes not loaded until parent is
-  :assigned: 
-  :uri: http://tinyurl.com/3pzl85
-- :state: invalid
-  :num: 95
-  :title: render_to_string changes Content_Type - regression?
-  :assigned: 
-  :uri: http://tinyurl.com/46ngal
-- :state: new
-  :num: 101
-  :title: Custom rake task without desc not listed with rake --tasks
-  :assigned: 
-  :uri: http://tinyurl.com/3gnses
-- :state: new
-  :num: 100
-  :title: Problem combining single table inheritance and a has_many relation
-  :assigned: 
-  :uri: http://tinyurl.com/3usnhb
-- :state: new
-  :num: 99
-  :title: SQLite connection failing
-  :assigned: "Assigned: Michael Koziarski"
-  :uri: http://tinyurl.com/4q5dma
-- :state: new
-  :num: 98
-  :title: "[PATCH] h method is not aliased properly"
-  :assigned: 
-  :uri: http://tinyurl.com/5x7rnz
-- :state: new
-  :num: 97
-  :title: "Enhancement: Add scope_options inspection method to named_scope"
-  :assigned: 
-  :uri: http://tinyurl.com/4fz93v

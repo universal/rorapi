@@ -7,19 +7,30 @@
     query = [*msg.dup.to_s.downcase.split(':')]
     title = query.first
     lang = query[1]
+    klass = true if query.first =~ /^[A-Z]/
     if lang && lang == 'ruby' && query.last == 'fuzzy'
       candidates = RUBY_API.select {|it| it[:method].include?(title)}
+    elsif lang == 'ruby' && klass
+      candidates = RUBY_API.select {|it| it[:path].select {|p| p.include?(title)}.any?}
     elsif lang == 'ruby'
       candidates = RUBY_API.select {|it| it[:method] == title}
+    elsif klass
+      candidates = RAILS_API.select {|it| it[:path].select {|p| p.include?(title)}.any?}
     elsif query.last == 'fuzzy'
       candidates = RAILS_API.select {|it| it[:method].include?(title)}
     else
       candidates = RAILS_API.select {|it| it[:method] == title}
     end
-    filter(query,candidates,detail) if candidates.any?
+    if candidates.any?
+      if klass
+        filter_by_class(query,candidates,detail)
+      else
+        filter_by_method(query,candidates,detail)
+      end
+    end
   end
 
-  def filter(query,candidates,detail)
+  def filter_by_method(query,candidates,detail)
     candidates.each do |it|
       path = it[:path].dup
       it[:truncated_path] = path[0..-2].map {|p| p.gsub(/[A-Z]/){|z| "|#{z}"}.split('|').map {|i| i[0..2]}.join()}.join(':')
