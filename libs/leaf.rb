@@ -580,8 +580,8 @@ module Autumn
           join_channel "#rubyonrails"
         elsif arguments[:message] == "!contrib"
           join_channel "#rails-contrib"
-        elsif arguments[:message] == "!lang"
-          join_channel "#ruby-lang"
+        elsif arguments[:message] == "!ruby"
+          join_channel "#ruby"
         elsif arguments[:message] =~ /^google\?/
           msg = arguments[:message].gsub(/^google\?\s/){}
           stem.message response, reply_to

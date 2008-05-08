@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env /home/nonstop/ruby19/bin/ruby
 #
 # Controller for the Autumn daemon. Starts, stops, and manages the daemon. Must
 # be run from the Autumn root directory.

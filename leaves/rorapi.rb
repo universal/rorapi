@@ -60,9 +60,9 @@ class Rorapi < Autumn::Leaf
     reply_to = query[1].gsub(/#/){} if query.size > 1 
     detail = true if query.size > 1
     if query.first =~ /^\?/
+      key = query.first.gsub(/\W/){}.to_sym
       faq = YAML::load(File.read("leaves/api_docs/rails_faq.yml"))
-      items = faq.select {|it| it == query.first.gsub(/\W/){}.to_sym}
-      item = items.values.first if items.any?
+      item = faq[key] if faq.has_key?(key)
       response = item
       response = item.join(', ') if item.is_a?(Array)
     else
