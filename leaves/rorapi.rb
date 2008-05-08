@@ -22,13 +22,11 @@ class Rorapi < Autumn::Leaf
     end
   end
 
-  def google_command(stem,sender,reply_to,target,msgs)
-    matches = msgs.select {|it| it[:nick] == target}
-    if matches.any?
-      msg = matches.last
-      query = "#{msg[:nick]}: http://www.google.com/search?q=ruby+rails+#{CGI.escape(msg[:msg].downcase.gsub(/[^a-zA-Z0-9-\s]/){}.gsub(/\s{1,}/,' '))}  (If you do not speak English, #{msg[:nick]}, I am at your disposal with 187 other languages along with their various dialects and sub-tongues.)"
-      message(query,reply_to)
-    end
+  def google_command(stem,sender,reply_to,msg)
+    doc = get("www.google.com","/search?q=#{CGI.escape(msg.downcase.gsub(/[^a-zA-Z0-9-\s]/){}.gsub(/\s{1,}/,' '))}")
+    link = doc.at(".g").at(:a)
+    result = "#{link.inner_text}: #{link[:href]}"
+    message(result,reply_to)
   end
 
   def usage_command(stem,sender,reply_to,msg)
@@ -38,7 +36,7 @@ class Rorapi < Autumn::Leaf
   end
 
   def define_command(stem,sender,reply_to,define,msg)
-    faq = YAML::load(File.read('leaves/api_docs/rails_faq.yml'))
+    faq = YAML::load(File.read("leaves/api_docs/rails_faq.yml"))
     definition = msg.gsub(/\*$|<<|>>|\s{2,}/){}.strip
     definition_set = definition.split(',')
     definition_set.map! {|it| it.strip}
@@ -62,8 +60,9 @@ class Rorapi < Autumn::Leaf
     reply_to = query[1].gsub(/#/){} if query.size > 1 
     detail = true if query.size > 1
     if query.first =~ /^\?/
-      faq = YAML::load(File.read('leaves/api_docs/rails_faq.yml'))
-      item = faq.select {|it| it == query.first.gsub(/\W/){}.to_sym}.values.first
+      faq = YAML::load(File.read("leaves/api_docs/rails_faq.yml"))
+      items = faq.select {|it| it == query.first.gsub(/\W/){}.to_sym}
+      item = items.values.first if items.any?
       response = item
       response = item.join(', ') if item.is_a?(Array)
     else
@@ -107,7 +106,7 @@ class Rorapi < Autumn::Leaf
       when :new
         about = "New ticket (#{ticket[:num]})"
       end
-      p msg = "[ Lighthouse ] #{about}: #{ticket[:title]} #{ticket[:assigned]} #{ticket[:uri]}"
+      p msg = "[Lighthouse] #{about}: #{ticket[:title]} #{ticket[:assigned]} #{ticket[:uri]}"
       message(msg,"#rorbot")
       message(msg,"#rubyonrails")
       message(msg,"#rails-contrib")

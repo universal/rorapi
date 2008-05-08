@@ -580,10 +580,12 @@ module Autumn
           join_channel "#rubyonrails"
         elsif arguments[:message] == "!contrib"
           join_channel "#rails-contrib"
-        elsif msg_array.last =~ /google/ && msg_array.first =~ /,$|:$/ 
-          target = msg_array.first.gsub(/\W/){}          
+        elsif arguments[:message] == "!lang"
+          join_channel "#ruby-lang"
+        elsif arguments[:message] =~ /^google\?/
+          msg = arguments[:message].gsub(/^google\?\s/){}
           stem.message response, reply_to
-          response = respond :google_command, stem, sender, reply_to, target, @last_msgs
+          response = respond :google_command, stem, sender, reply_to, msg
         elsif arguments[:message] =~ /^![aA-zZ]/
           args = arguments[:message].gsub(/!/){}.split(" ")
           name = args.first

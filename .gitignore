@@ -2,3 +2,5 @@ log
 config
 tmp
 leaves/wire/**/*
+*.log
+*.output
