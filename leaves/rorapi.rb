@@ -1,7 +1,7 @@
 #require 'rubygems'
 #require 'hpricot'
 #require 'yaml'
-require 'cgi'
+require 'uri'
 require 'net/http'
 require 'hpricot'
 require 'leaves/search_api'
@@ -23,7 +23,7 @@ class Rorapi < Autumn::Leaf
   end
 
   def google_command(stem,sender,reply_to,msg)
-    doc = get("www.google.com","/search?q=#{CGI.escape(msg.downcase.gsub(/[^a-zA-Z0-9-\s]/){}.gsub(/\s{1,}/,' '))}")
+    doc = get("www.google.com","/search?q=#{URI.encode(msg)}")
     link = doc.at(".g").at(:a)
     result = "#{link.inner_text}: #{link[:href]}"
     message(result,reply_to)
