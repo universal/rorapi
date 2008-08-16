@@ -141,8 +141,105 @@ class Rorapi < Autumn::Leaf
     tickets
   end
 
-  private
+  #######
+  ## moved modifications from libs/leaf.rb to here:
+  #######
 
+  # Invoked when the leaf receives a private (whispered) message. +sender+ is
+  # a sender hash.
+  def did_receive_private_message(stem, sender, msg)
+    if msg =~ /^\?{1,2}[aA-zZ]/
+      name = 'q'
+      meth = "q_command".to_sym
+      msg = msg.gsub(/^\?{1}|quit|reload/){}
+      origin = sender.merge(:stem => stem)
+      reply_to = sender[:nick]
+      detail = true
+      stem.message response, reply_to
+      response = respond meth, stem, sender, reply_to, msg, detail
+    else
+      origin = sender.merge(:stem => stem)
+      reply_to = sender[:nick]
+      msg = msg.gsub(/!/){}
+      meth = :usage_command
+      stem.message response, reply_to
+      response = respond meth, stem, sender, reply_to, msg
+    end
+  end
+  
+  # renamed from
+  # def parse_for_command(stem, sender, arguments) to
+  def command_parse(stem, sender, arguments)
+    @last_msgs ||= []
+    if arguments[:channel] || options[:respond_to_private_messages]
+      reply_to = arguments[:channel] ? arguments[:channel] : sender[:nick]
+      #begin rorapi customizations. dry up later
+      msg_array = arguments[:message].split
+      if arguments[:message] =~ /^\?{1,2}/ && arguments[:message].size > 1
+        name = 'q'
+        meth = "q_command".to_sym
+        msg = arguments[:message].gsub(/^\?{1}/){}
+        origin = sender.merge(:stem => stem)
+        stem.message response, reply_to
+        if run_before_filters(name, stem, arguments[:channel], sender, name, msg) then
+          response = respond meth, stem, sender, reply_to, msg
+          run_after_filters name, stem, arguments[:channel], sender, name, msg if respond_to? meth
+          if response && !response.empty?
+            #stem.message response, reply_to
+          end
+        end #end rorapi
+      elsif arguments[:message] =~ /^rorbby,/
+        txt = arguments[:message].dup
+        txt.gsub!(/rorbby,\s/){}.strip
+        define = txt.split(' ')
+        term = nil
+        msg = nil
+        if define.first =~ /:/
+          term = define.first.gsub(/:/){}.to_sym
+          msg = define[1..-1].join(' ')
+        else
+          term = define.first.gsub(/\W/){}.to_sym
+          msg = define.join(' ')
+        end
+        origin = sender.merge(:stem => stem)
+        stem.message response, reply_to
+        response = respond :define_command, stem, sender, reply_to, term, msg
+      elsif arguments[:message] == "!rails"
+        join_channel "#rubyonrails"
+      elsif arguments[:message] == "!contrib"
+        join_channel "#rails-contrib"
+      elsif arguments[:message] == "!ruby"
+        join_channel "#ruby"
+      elsif arguments[:message] =~ /^google\?/
+        msg = arguments[:message].gsub(/^google\?\s/){}
+        stem.message response, reply_to
+        response = respond :google_command, stem, sender, reply_to, msg
+      elsif arguments[:message] =~ /^![aA-zZ]/
+        args = arguments[:message].gsub(/!/){}.split(" ")
+        name = args.first
+        meth = "#{name}_command".to_sym
+        msg = args.last if args.size > 1
+        origin = sender.merge(:stem => stem)
+        if run_before_filters(name, stem, arguments[:channel], sender, name, msg) then
+          response = respond meth, stem, sender, reply_to, msg
+          run_after_filters name, stem, arguments[:channel], sender, name, msg if respond_to? meth
+          if response and not response.empty? then
+            #stem.message response, reply_to
+          end
+        end
+      end
+      if arguments[:channel] == '#rubyonrails'
+        @last_msgs << {:msg => arguments[:message], :nick => sender[:nick]}
+        @last_msgs.shift if @last_msgs.size > 10
+      end
+    end
+  end
+
+  #######
+  ## end of moved code
+  #######
+
+  private
   def go_wire
     while @polling
       rails_tix
