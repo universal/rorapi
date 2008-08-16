@@ -1,7 +1,7 @@
   
-  RAILS_API = Marshal.load(File.read('leaves/api_docs/rails.dump'))
+  RAILS_API = Marshal.load(File.read('leaves/rorapi/data/api_docs/rails.dump'))
 
-  RUBY_API = Marshal.load(File.read('leaves/api_docs/ruby.dump'))
+  RUBY_API = Marshal.load(File.read('leaves/rorapi/data/api_docs/ruby.dump'))
 
   def search(msg,detail)
     query = [*msg.dup.to_s.downcase.split(':')]

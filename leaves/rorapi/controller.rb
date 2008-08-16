@@ -4,9 +4,9 @@
 require 'uri'
 require 'net/http'
 require 'hpricot'
-require 'helpers/search_api'
+require 'leaves/rorapi/helpers/search_api'
 
-class Rorapi < Autumn::Leaf
+class Controller < Autumn::Leaf
 
 #  before_filter :authenticate, :only => [ :reload, :quit ]
 
@@ -36,7 +36,7 @@ class Rorapi < Autumn::Leaf
   end
 
   def define_command(stem,sender,reply_to,define,msg)
-    faq = YAML::load(File.read("leaves/api_docs/rails_faq.yml"))
+    faq = YAML::load(File.read("leaves/rorapi/data/api_docs/rails_faq.yml"))
     definition = msg.gsub(/\*$|<<|>>|\s{2,}/){}.strip
     definition_set = definition.split(',')
     definition_set.map! {|it| it.strip}
@@ -52,7 +52,7 @@ class Rorapi < Autumn::Leaf
     elsif faq[define] && msg =~ /\*$/ || !faq[define]
       faq[define] = definition
     end
-    File.open("leaves/api_docs/rails_faq.yml","w+") {|f| f.puts faq.to_yaml}
+    File.open("leaves/rorapi/data/api_docs/rails_faq.yml","w+") {|f| f.puts faq.to_yaml}
   end
 
   def q_command(stem,sender,reply_to,msg,detail=false)
@@ -61,7 +61,7 @@ class Rorapi < Autumn::Leaf
     detail = true if query.size > 1
     if query.first =~ /^\?/
       key = query.first.gsub(/\W/){}.to_sym
-      faq = YAML::load(File.read("leaves/api_docs/rails_faq.yml"))
+      faq = YAML::load(File.read("leaves/rorapi/data/api_docs/rails_faq.yml"))
       item = faq[key] if faq.has_key?(key)
       response = item
       response = item.join(', ') if item.is_a?(Array)
@@ -74,14 +74,14 @@ class Rorapi < Autumn::Leaf
   alias Q_command q_command
 
   def rails_edge
-    file = File.read("leaves/wire/rails/commits.yml")
+    file = File.read("leaves/rorapi/data/wire/rails/commits.yml")
     commits = YAML::load(file)
     response = Net::HTTP.get("github.com","/feeds/rails/commits/rails/master")
     xml = Hpricot.XML(response.body)
     commit = {}
     commit[:title] = xml.at(:entry).at(:title).inner_text
     commit[:date] = xml.at(:entry).at(:updated).inner_text
-    File.open("leaves/wire/rails/commits.yml","w+") {|f| f.puts commit.to_yaml}
+    File.open("leaves/rorapi/data/wire/rails/commits.yml","w+") {|f| f.puts commit.to_yaml}
     if commits && !commits.eql?(commit)
       msg = "New edge commit: #{commit[:title]}"
       message(msg,"#rorbot")
@@ -90,8 +90,8 @@ class Rorapi < Autumn::Leaf
   end
 
   def rails_tix
-    old = YAML::load(File.open("leaves/wire/rails/tix_archive.yml")) 
-    tix = YAML::load(File.open("leaves/wire/rails/tix.yml"))
+    old = YAML::load(File.open("leaves/rorapi/data/wire/rails/tix_archive.yml")) 
+    tix = YAML::load(File.open("leaves/rorapi/data/wire/rails/tix.yml"))
     tix ||= []
     old ||= []
     old << tix
@@ -137,7 +137,7 @@ class Rorapi < Autumn::Leaf
       end
     end
     count > 1 ? title = 'tix_archive' : title = 'tix'
-    File.open("leaves/wire/rails/#{title}.yml","w+") {|f| f.puts tickets.to_yaml}
+    File.open("leaves/rorapi/data/wire/rails/#{title}.yml","w+") {|f| f.puts tickets.to_yaml}
     tickets
   end
 
@@ -155,14 +155,14 @@ class Rorapi < Autumn::Leaf
       origin = sender.merge(:stem => stem)
       reply_to = sender[:nick]
       detail = true
-      stem.message response, reply_to
+#      stem.message response, reply_to
       response = respond meth, stem, sender, reply_to, msg, detail
     else
       origin = sender.merge(:stem => stem)
       reply_to = sender[:nick]
       msg = msg.gsub(/!/){}
       meth = :usage_command
-      stem.message response, reply_to
+#      stem.message response, reply_to
       response = respond meth, stem, sender, reply_to, msg
     end
   end
@@ -180,7 +180,7 @@ class Rorapi < Autumn::Leaf
         meth = "q_command".to_sym
         msg = arguments[:message].gsub(/^\?{1}/){}
         origin = sender.merge(:stem => stem)
-        stem.message response, reply_to
+#        stem.message response, reply_to
         if run_before_filters(name, stem, arguments[:channel], sender, name, msg) then
           response = respond meth, stem, sender, reply_to, msg
           run_after_filters name, stem, arguments[:channel], sender, name, msg if respond_to? meth
@@ -255,13 +255,13 @@ class Rorapi < Autumn::Leaf
   end
 
   def tinyuri(uri)
-    file = File.read("leaves/wire/rails/tinyuris.yml")
+    file = File.read("leaves/rorapi/data/wire/rails/tinyuris.yml")
     tix = YAML::load(file)
     tix ||= {}
     unless tix[uri]
       doc = get("tinyurl.com","/create.php?url=#{uri}")
       tix[uri] = (doc/:blockquote)[1].at(:b).inner_text
-      File.open("leaves/wire/rails/tinyuris.yml","w+") {|f| f.puts tix.to_yaml}
+      File.open("leaves/rorapi/data/wire/rails/tinyuris.yml","w+") {|f| f.puts tix.to_yaml}
     end
     tix[uri]
   end
