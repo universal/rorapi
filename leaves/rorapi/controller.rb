@@ -4,7 +4,7 @@
 require 'uri'
 require 'net/http'
 require 'hpricot'
-require 'leaves/search_api'
+require 'helpers/search_api'
 
 class Rorapi < Autumn::Leaf
 
